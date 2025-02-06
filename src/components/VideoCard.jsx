@@ -8,15 +8,14 @@ import { demoChannelTitle, demoChannelUrl, demoThumbnailUrl, demoVideoTitle, dem
 const VideoCard = ({ video }) => {
     const { id: { videoId }, snippet } = video
     return (
-        <Card sx={{ width: { xs: '100%',sm:'360px', md: '320px' }, maxWidth: "360px", boxShadow: 'none', borderRadius: 0 }}>
+        <Card sx={{ width: { xs: '100%', sm:'360px', md: '320px' }, maxWidth: "360px", boxShadow: 'none', borderRadius: 0 }}>
             <Link to={videoId ? `/video/${videoId}` : demoVideoUrl2}>
                 <CardMedia 
                     component='img'
                     image={snippet?.thumbnails?.high?.url || demoThumbnailUrl}
                     alt={snippet?.title}
                     sx={{ 
-                        width: "100%",  // Ensures it takes up full width of Card
-                        maxWidth: "100%", // Prevents it from overflowing
+                        width: { sx: '100%', sm: '360px', md: '320px' },
                         height: "180px", 
                         objectFit: "cover" // Ensures it crops instead of stretching
                     }} 
